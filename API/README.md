@@ -11,14 +11,14 @@ Each time CogNet infrastructure is deployed different servers get new dynamic ip
 ## Overview 
 [Top][]
 
-The CogNet solution performs data capturing, data processing and decision recommendation consequently. This way, the deployment and integration of an existing virtualized infrastructure with the CogNet solution is limited to the data ingest and the policy recommendation embodied in two Apis_public (Inbound and Outbound from the CogNet platform perspective) that decouple the CogNet solution from the analysed and optimized system to be autonomously managed.
+The CogNet solution performs data capturing, data processing and decision recommendation consequently. This way, the deployment and integration of an existing virtualized infrastructure with the CogNet solution is limited to the data ingest and the policy recommendation embodied in two Apis (Inbound and Outbound from the CogNet platform perspective) that decouple the CogNet solution from the analysed and optimized system to be autonomously managed.
 
 1. The Inbound API. This is feed with measures coming from the managed system, through the monitoring system, to the data collector.
 2. The Outbound API. It provides policy recommendations accordingly to the identified and forecasted events.
 
-![alt text](res/cognet_interfaces.png "CogNet Apis_public dataflow")
+![alt text](res/cognet_interfaces.png "CogNet Apis dataflow")
 
-Additionally some Internal Apis_public, from the point of view of implementation, connect/glue the major entities from the CogNet Infrastructure.
+Additionally some Internal Apis, from the point of view of implementation, connect/glue the major entities from the CogNet Infrastructure.
 
 3. Data Collector – CogNet Smart Engine. This lets CSE access to measures coming from the monitored infrastructure attached to a specific time and item.
 4. CogNet Smart Engine – Policy Engine. This provides evidences, situations, identified and notified to the Policy Engine as soon as they are detected or predicted by the CSE.
@@ -205,7 +205,7 @@ The sequence of operations involved in posting a metric to the InfluxDB is as fo
 2.	The Monasca API authenticates and validates the request and publishes the metric to the Message Queue (powered by Kafka).
 3.	The Persister consumes the metric from the Message Queue and stores in the Metrics Store.
 
-![alt text](https://github.com/CogNet-5GPPP/Apis_public/blob/master/API/res/cognet_interface_metrics_monasca.png "CogNet Metrics dataflow")
+![alt text](https://github.com/CogNet-5GPPP/CogNet_Apis/blob/master/API/res/cognet_interface_metrics_monasca.png "CogNet Metrics dataflow")
  
 Now lets have a look to this API.
 
@@ -416,15 +416,15 @@ The SW stack involved here is as follows:
   * Openvim (https://github.com/nfvlabs/openmano/raw/master/docs/openvim-api-0.6.pdf). REST API of an NFV VIM (Virtualised Infrastructure Manager). It interfaces with the compute nodes in the NFV Infrastructure and an openflow controller in order to provide computing and networking capabilities and to deploy virtual machines. It offers a northbound interface, based on REST (openvim API), where enhanced cloud services are offered including the creation, deletion and management of images, flavors, instances and networks.
   * Openmano (https://github.com/nfvlabs/openmano/wiki/openmano-api). REST API of an NFV-O (Network Functions Virtualisation Orchestrator). It interfaces with an NFV VIM through its API and offers a northbound interface, based on REST (openmano API), where NFV services are offered including the creation and deletion of VNF templates, VNF instances, network service templates and network service instances.
  * SDN controller northbound.
-  * ODL (http://events.linuxfoundation.org/sites/events/files/slides/Tutorial-Ericsson-RedHat-Juniper.pdf#page=45, https://wiki.opendaylight.org/view/OpenDaylight_Controller:MD-SAL:Restconf). Restconf access to the controller. The supported data formats for request and response can be in XML or JSON format. JSON structures are defined at JSON-YANG (http://tools.ietf.org/html/draft-lhotka-netmod-yang-json-02)  RESTful Apis_public exposed (http://thenewstack.io/writing-opendaylight-applications/):
-   * Topology: Contains RESTful Apis_public to access the network graph represented by edges, nodes and their properties. A predefined XML schema defines the data elements for this API. This example illustrates vlan map using mininet (https://wiki.opendaylight.org/view/OpenDaylight_Virtual_Tenant_Network_%28VTN%29:VTN_Coordinator:RestApi:L2_Network_Example_Using_VTN_Virtualization#Example_to_illustrate_vlan_map_using_mininet).
+  * ODL (http://events.linuxfoundation.org/sites/events/files/slides/Tutorial-Ericsson-RedHat-Juniper.pdf#page=45, https://wiki.opendaylight.org/view/OpenDaylight_Controller:MD-SAL:Restconf). Restconf access to the controller. The supported data formats for request and response can be in XML or JSON format. JSON structures are defined at JSON-YANG (http://tools.ietf.org/html/draft-lhotka-netmod-yang-json-02)  RESTful Apis exposed (http://thenewstack.io/writing-opendaylight-applications/):
+   * Topology: Contains RESTful Apis to access the network graph represented by edges, nodes and their properties. A predefined XML schema defines the data elements for this API. This example illustrates vlan map using mininet (https://wiki.opendaylight.org/view/OpenDaylight_Virtual_Tenant_Network_%28VTN%29:VTN_Coordinator:RestApi:L2_Network_Example_Using_VTN_Virtualization#Example_to_illustrate_vlan_map_using_mininet).
    * Host Tracker: RESTful API for extracting or setting information, based on the nodes identified by topology service, for a host machine on the network. The XML Schema defining the data elements for this API includes information like network address and VLAN information.
-   * Flow Programmer: Apis_public exposed for configuring flows on the network elements, controlled by their respective protocol plugins on the southbound side. The XML Schema for this API includes information for configuring flows with their match conditions and actions. Here an example for L2 vBridge Interface Mapping with Multi-controller using mininet (https://wiki.opendaylight.org/view/OpenDaylight_Virtual_Tenant_Network_%28VTN%29:VTN_Coordinator:RestApi:L2_Network_Example_Using_VTN_Virtualization#L2_Network_with_Multiple_Controllers).
-   * Static Routing Apis_public: Simple Apis_public for creating IP L3 static routing entries on the networking fabric.
-   * Statistics: Apis_public providing the statistics of flow entries, and the node elements.
-   * Subnets: Apis_public for configuring network nodes and the hosts attached to them into predefined IP Subnets.
-   * Switch Manager: Apis_public which focus on exposing various nodes in underlying network as a switch profile, listing their ports and properties.
-   * User Manager: Apis_public which are used for configuring the authenticated users, with their roles, of the OpenDaylight platform.
+   * Flow Programmer: Apis exposed for configuring flows on the network elements, controlled by their respective protocol plugins on the southbound side. The XML Schema for this API includes information for configuring flows with their match conditions and actions. Here an example for L2 vBridge Interface Mapping with Multi-controller using mininet (https://wiki.opendaylight.org/view/OpenDaylight_Virtual_Tenant_Network_%28VTN%29:VTN_Coordinator:RestApi:L2_Network_Example_Using_VTN_Virtualization#L2_Network_with_Multiple_Controllers).
+   * Static Routing Apis: Simple Apis for creating IP L3 static routing entries on the networking fabric.
+   * Statistics: Apis providing the statistics of flow entries, and the node elements.
+   * Subnets: Apis for configuring network nodes and the hosts attached to them into predefined IP Subnets.
+   * Switch Manager: Apis which focus on exposing various nodes in underlying network as a switch profile, listing their ports and properties.
+   * User Manager: Apis which are used for configuring the authenticated users, with their roles, of the OpenDaylight platform.
 
 
 ### API
@@ -436,7 +436,7 @@ The REST request generated by Policy Engine based on ECA-SUPA definition has two
 
 #### REST API of the Proxy
 
-The Proxy has a REST API interface which takes the pushed JSON policies/actions (with a structure coming from the SUPA ECA model) and forwards it to the proper entity by means of Northbound Apis_public.
+The Proxy has a REST API interface which takes the pushed JSON policies/actions (with a structure coming from the SUPA ECA model) and forwards it to the proper entity by means of Northbound Apis.
 
 To transmit policies to a specific Proxy.
 ```

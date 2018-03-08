@@ -1,6 +1,6 @@
-# Apis_public
+# Apis
 
-In this folder you will find the Apis_public for [CogNet project](http://www.cognet.5g-ppp.eu/).
+In this folder you will find the Apis for [CogNet project](http://www.cognet.5g-ppp.eu/).
 
 ## Navigation
 [Goals][] | [Structure][] | [Authors][] | [License][]
